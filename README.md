@@ -1,4 +1,4 @@
-# 📦 Proyecto Laravel 12
+# 📦 Test Audisoft
 
 Aplicación desarrollada con **Laravel 12**, **PHP 8.3**, **Inertia.js** y **React**.
 
