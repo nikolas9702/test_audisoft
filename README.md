@@ -18,8 +18,8 @@ Aplicación desarrollada con **Laravel 12**, **PHP 8.3**, **Inertia.js** y **Rea
 
 ### 1. Clonar el repositorio
 ```bash
-git clone <url-del-repositorio>
-cd <nombre-del-proyecto>
+git clone https://github.com/nikolas9702/test_audisoft
+cd test_audisoft
 ```
 
 ---
