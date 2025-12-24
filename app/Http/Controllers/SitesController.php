@@ -2,65 +2,58 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\sites;
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Http\Requests\Site\SiteStore;
+use App\Http\Requests\Site\SiteUpdate;
+use App\Models\Categories;
+use App\Models\Sites;
+use Inertia\Inertia;
 
 class SitesController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        return Inertia::render('catalog', [
+            'categories' => Categories::all(),
+            'sites' => Sites::all(),
+        ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function store(SiteStore $request)
     {
-        //
+        try {
+            $site = Sites::create($request->getData());
+
+            return response()->json([
+                'message' => 'Site created',
+                'id' => $site->id
+            ], 201);
+
+        } catch (\Throwable $e) {
+            return response()->json(['message' => $e->getMessage()], 500);
+        }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function update(SiteUpdate $request, Sites $sites)
     {
-        //
+        try {
+            $sites->update($request->getData());
+
+            return response()->json(['message' => 'Site updated'], 200);
+
+        } catch (\Throwable $e) {
+            return response()->json(['message' => $e->getMessage()], 500);
+        }
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(sites $sites)
+    public function destroy(Sites $sites)
     {
-        //
-    }
+        try {
+            $sites->delete();
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(sites $sites)
-    {
-        //
-    }
+            return response()->json(['message' => 'Site deleted'], 200);
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, sites $sites)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(sites $sites)
-    {
-        //
+        } catch (\Throwable $e) {
+            return response()->json(['message' => $e->getMessage()], 500);
+        }
     }
 }
