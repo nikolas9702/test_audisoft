@@ -20,7 +20,7 @@ export default function fetchActionWeb({token}:{token:string}) {
 
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-expect-error
-        return await fetch(`http://127.0.0.1:8000/${url}`, requestOptions)
+        return await fetch(`http://localhost:8000/${url}`, requestOptions)
             .then((response) => response.json())
             .then((result) => result)
     }
@@ -38,7 +38,7 @@ export default function fetchActionWeb({token}:{token:string}) {
 
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-expect-error
-        return await fetch(`http://127.0.0.1:8000/${url}`, requestOptions)
+        return await fetch(`http://localhost:8000/${url}`, requestOptions)
             .then((response) => response.json())
             .then((result) => result)
     }
@@ -57,7 +57,7 @@ export default function fetchActionWeb({token}:{token:string}) {
 
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-expect-error
-        return await fetch(`http://127.0.0.1:8000/${url}`, requestOptions)
+        return await fetch(`http://localhost:8000/${url}`, requestOptions)
             .then((response) => response.json())
             .then((result) => result)
     }

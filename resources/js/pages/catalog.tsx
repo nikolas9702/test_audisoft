@@ -185,7 +185,7 @@ const SiteTableRow = ({ site, categoryName, onEdit, onDelete }: {
             <td className="px-6 py-4 font-medium text-slate-800">{site.name}</td>
             <td className="px-6 py-4">
                 <a
-                    href={site.url}
+                    href={'https://'+site.url}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-indigo-600 hover:text-indigo-800 flex items-center gap-2 hover:underline"
@@ -441,7 +441,6 @@ function SitesManager() {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-expect-error
     const { categories, sites } = usePage<PageProps>().props
-    console.log(sites);
     const token = document
         .querySelector('meta[name="csrf-token"]')
         ?.getAttribute('content') ?? ''
